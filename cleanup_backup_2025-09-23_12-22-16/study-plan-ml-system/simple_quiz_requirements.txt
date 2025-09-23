@@ -1,0 +1,13 @@
+# Simple Quiz Service Requirements
+# This service uses only Python standard library modules - no additional packages needed
+# 
+# Standard library modules used:
+# - http.server (HTTPServer, BaseHTTPRequestHandler)
+# - json (JSON parsing and encoding)
+# - socket (network communication)
+# - urllib.parse (URL parsing utilities)
+#
+# Python version: 3.8+
+# 
+# No pip install required for this service
+# Compatible with the Enhanced Free Quiz Service API

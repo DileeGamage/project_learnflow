@@ -1,0 +1,100 @@
+{
+  "user_id": 123,
+  "generated_at": "2025-07-31T00:48:21.722217",
+  "duration_days": 7,
+  "goals": [
+    "Test the system",
+    "Verify functionality"
+  ],
+  "user_profile": {
+    "user_type": "balanced_learner",
+    "optimal_study_time": "afternoon",
+    "session_preference": "medium",
+    "consistency_level": "medium",
+    "learning_style": "visual"
+  },
+  "mastery_assessment": {
+    "overall_mastery": 0.7,
+    "topic_mastery": {
+      "Math": 0.8,
+      "Science": 0.6,
+      "English": 0.7,
+      "History": 0.5
+    },
+    "weak_areas": [
+      "History",
+      "Science"
+    ],
+    "strong_areas": [
+      "Math",
+      "English"
+    ],
+    "improvement_potential": 0.3
+  },
+  "focus_topics": [
+    "History",
+    "Science",
+    "English",
+    "Math"
+  ],
+  "weak_topics": [
+    "History",
+    "Science"
+  ],
+  "weekly_schedule": {
+    "week_1": {
+      "Monday": [
+        "afternoon: Math practice (45-60 minutes)"
+      ],
+      "Tuesday": [
+        "afternoon: Science review (45-60 minutes)"
+      ],
+      "Wednesday": [
+        "afternoon: English skills (45-60 minutes)"
+      ],
+      "Thursday": [
+        "afternoon: History study (45-60 minutes)"
+      ],
+      "Friday": [
+        "afternoon: Mixed practice (45-60 minutes)"
+      ],
+      "Saturday": [
+        "afternoon: Assessment and review (45-60 minutes)"
+      ],
+      "Sunday": [
+        "Rest day or light review"
+      ]
+    }
+  },
+  "adaptive_elements": {
+    "difficulty_adjustment": "auto",
+    "pace_modification": "based_on_performance",
+    "content_personalization": "visual",
+    "reminder_frequency": "daily",
+    "motivation_triggers": [
+      "progress_celebration",
+      "streak_maintenance",
+      "goal_reminders"
+    ]
+  },
+  "progress_tracking": {
+    "milestones": [
+      {
+        "week": 1,
+        "target_date": "2025-08-07",
+        "goals": [
+          "Complete 5 practice sessions",
+          "Achieve 80% accuracy in assessments",
+          "Review all assigned topics"
+        ],
+        "assessment_type": "weekly_quiz"
+      }
+    ],
+    "assessment_frequency": "weekly",
+    "adjustment_triggers": [
+      "accuracy_drop",
+      "engagement_low",
+      "milestone_missed"
+    ]
+  }
+}
