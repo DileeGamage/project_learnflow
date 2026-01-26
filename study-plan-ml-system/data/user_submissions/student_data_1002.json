@@ -1,0 +1,13 @@
+{
+    "age": 22,
+    "gender": "Male",
+    "study_hours_per_day": 7,
+    "revision_frequency": "Daily",
+    "preferred_study_time": "Evening",
+    "uses_online_learning": "No",
+    "social_media_hours_per_day": 5,
+    "sleep_hours_per_day": 4,
+    "exam_stress_level": 3,
+    "last_exam_score_percent": 60,
+    "submission_timestamp": "2025-07-31 19:56:24"
+}

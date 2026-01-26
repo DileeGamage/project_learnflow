@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habits Questionnaire Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Learning Preferences</h4>
+            </div>
+            <div class="card-body">
+                <p class="lead">
+                    First, to create the best experience for you, let's learn a little about 
+                    your current study routine. It'll only take a moment.
+                </p>
+                
+                <form id="habits-form">
+                    
+                    <div class="progress mb-4">
+                        <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                    </div>
+                    
+                    <!-- Question sections - only one is shown at a time -->
+                    <div class="question-section" data-question="1">
+                        <h5>When do you prefer to study?</h5>
+                        <div class="form-group">
+                            <div class="form-check mb-2">
+                                <input type="radio" id="morning" name="study_time" value="morning" class="form-check-input">
+                                <label class="form-check-label" for="morning">Morning</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input type="radio" id="afternoon" name="study_time" value="afternoon" class="form-check-input">
+                                <label class="form-check-label" for="afternoon">Afternoon</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input type="radio" id="evening" name="study_time" value="evening" class="form-check-input">
+                                <label class="form-check-label" for="evening">Evening</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input type="radio" id="late_night" name="study_time" value="late_night" class="form-check-input">
+                                <label class="form-check-label" for="late_night">Late night</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question-section" data-question="2" style="display: none;">
+                        <h5>What is your preferred learning style?</h5>
+                        <div class="form-group">
+                            <div class="form-check mb-2">
+                                <input type="radio" id="visual" name="learning_style" value="visual" class="form-check-input">
+                                <label class="form-check-label" for="visual">Visual (images, diagrams)</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input type="radio" id="auditory" name="learning_style" value="auditory" class="form-check-input">
+                                <label class="form-check-label" for="auditory">Auditory (listening, discussion)</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input type="radio" id="reading" name="learning_style" value="reading" class="form-check-input">
+                                <label class="form-check-label" for="reading">Reading/Writing</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input type="radio" id="kinesthetic" name="learning_style" value="kinesthetic" class="form-check-input">
+                                <label class="form-check-label" for="kinesthetic">Kinesthetic (hands-on activities)</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="question-section" data-question="3" style="display: none;">
+                        <h5>How long are your typical study sessions?</h5>
+                        <div class="form-group">
+                            <div class="form-check mb-2">
+                                <input type="radio" id="very_short" name="study_duration" value="very_short" class="form-check-input">
+                                <label class="form-check-label" for="very_short">Very short (15-30 minutes)</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input type="radio" id="short" name="study_duration" value="short" class="form-check-input">
+                                <label class="form-check-label" for="short">Short (30-60 minutes)</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input type="radio" id="medium" name="study_duration" value="medium" class="form-check-input">
+                                <label class="form-check-label" for="medium">Medium (1-2 hours)</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input type="radio" id="long" name="study_duration" value="long" class="form-check-input">
+                                <label class="form-check-label" for="long">Long (2+ hours)</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation buttons -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="button" class="btn btn-secondary prev-btn" style="display: none;">Previous</button>
+                        <button type="button" class="btn btn-primary next-btn">Next</button>
+                        <button type="submit" class="btn btn-success submit-btn" style="display: none;">Continue to Review</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.question-section');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const submitBtn = document.querySelector('.submit-btn');
+            const progressBar = document.getElementById('progress-bar');
+            
+            let currentQuestion = 1;
+            const totalQuestions = sections.length;
+            
+            // Update progress bar
+            function updateProgress() {
+                const progress = (currentQuestion - 1) / totalQuestions * 100;
+                progressBar.style.width = `${progress}%`;
+            }
+            
+            // Show a specific question section
+            function showQuestion(questionNum) {
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                
+                document.querySelector(`[data-question="${questionNum}"]`).style.display = 'block';
+                
+                // Update button visibility
+                prevBtn.style.display = questionNum > 1 ? 'block' : 'none';
+                nextBtn.style.display = questionNum < totalQuestions ? 'block' : 'none';
+                submitBtn.style.display = questionNum === totalQuestions ? 'block' : 'none';
+                
+                currentQuestion = questionNum;
+                updateProgress();
+            }
+            
+            // Event listeners for navigation buttons
+            prevBtn.addEventListener('click', () => {
+                if (currentQuestion > 1) {
+                    showQuestion(currentQuestion - 1);
+                }
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                console.log('Next button clicked');
+                // Simple validation - check if current question has an answer
+                const currentSection = document.querySelector(`[data-question="${currentQuestion}"]`);
+                const inputs = currentSection.querySelectorAll('input[type="radio"]');
+                let answered = false;
+                
+                inputs.forEach(input => {
+                    if (input.checked) answered = true;
+                });
+                
+                if (!answered) {
+                    alert('Please select an answer before continuing.');
+                    return;
+                }
+                
+                if (currentQuestion < totalQuestions) {
+                    showQuestion(currentQuestion + 1);
+                }
+            });
+            
+            // Handle form submit
+            document.getElementById('habits-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Form submitted successfully!');
+            });
+            
+            // Initialize the first question
+            showQuestion(1);
+            
+            // Debug message
+            console.log('Script loaded and initialized');
+        });
+    </script>
+</body>
+</html>

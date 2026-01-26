@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+venv_free_ai/
+.env
+
+# Laravel
+study-plan-ml-system-laravel/vendor/
+study-plan-ml-system-laravel/node_modules/
+study-plan-ml-system-laravel/.env
+study-plan-ml-system-laravel/storage/*.key
+study-plan-ml-system-laravel/storage/logs/
+study-plan-ml-system-laravel/storage/framework/cache/
+study-plan-ml-system-laravel/storage/framework/sessions/
+study-plan-ml-system-laravel/storage/framework/views/
+study-plan-ml-system-laravel/bootstrap/cache/
+study-plan-ml-system-laravel/public/storage
+study-plan-ml-system-laravel/public/hot
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Uploads
+uploads/
+public/uploads/
+user_assets/
+
+# Database
+*.sqlite
+*.db
